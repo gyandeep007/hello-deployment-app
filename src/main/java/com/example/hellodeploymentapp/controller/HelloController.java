@@ -12,4 +12,12 @@ public class HelloController {
     public String helloController(@RequestParam(required = false) String name){
         return (name == null || name.isEmpty())?"Welcome dummy user":"welcome "+name;
     }
+
+    @GetMapping(value = "/calculate")
+    public int calculateController(@RequestParam(required = false) String firstNumber,
+                                      @RequestParam(required = false) String secondNumber){
+        int first = Integer.parseInt(firstNumber);
+        int second = Integer.parseInt(secondNumber);
+        return first+second;
+    }
 }
