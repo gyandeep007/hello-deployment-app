@@ -16,7 +16,6 @@ public class HelloController {
     @GetMapping(value = "/calculate")
     public int calculateController(@RequestParam(required = false) String firstNumber,
                                       @RequestParam(required = false) String secondNumber){
-        System.out.println("received request");
         int first = Integer.parseInt(firstNumber);
         int second = Integer.parseInt(secondNumber);
         return first+second;
