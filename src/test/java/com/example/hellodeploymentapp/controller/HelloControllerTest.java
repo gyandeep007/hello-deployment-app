@@ -27,7 +27,6 @@ class HelloControllerTest {
 
     @Test
     void calculateControllerTest() throws Exception {
-        //System.out.println("adding test method");
         mockMvc.perform(MockMvcRequestBuilders.get("/calculate")
                                               .queryParam("firstNumber","12")
                                               .queryParam("secondNumber","12")
