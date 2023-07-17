@@ -17,7 +17,7 @@ class HelloControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    void helloController() throws Exception {
+    void helloControllerTest() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/hello").
                 queryParam("name","gyandeep"))
                 .andExpect(status().isOk())
@@ -26,6 +26,12 @@ class HelloControllerTest {
     }
 
     @Test
-    void calculateController() {
+    void calculateControllerTest() throws Exception {
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/calculate")
+                                              .queryParam("firstNumber","12")
+                                              .queryParam("secondNumber","12")
+                       ).andExpect(status().isOk())
+                        .andExpect(MockMvcResultMatchers.content().string("24"));
     }
 }
