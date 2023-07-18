@@ -35,7 +35,7 @@ class HelloControllerTest {
     @Test
     void helloControllerTestEmptyName() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/hello")
-                .queryParam("name","gyandeep"))
+                .queryParam("name",""))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string("Welcome dummy user"));
 
