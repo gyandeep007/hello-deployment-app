@@ -26,8 +26,16 @@ class HelloControllerTest {
     }
 
     @Test
+    void helloControllerTestEmptyName() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/hello"))
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.content().string("Welcome dummy user"));
+
+    }
+
+
+    @Test
     void calculateControllerTest() throws Exception {
-        //System.out.println("adding test method");
         mockMvc.perform(MockMvcRequestBuilders.get("/calculate")
                                               .queryParam("firstNumber","12")
                                               .queryParam("secondNumber","12")
