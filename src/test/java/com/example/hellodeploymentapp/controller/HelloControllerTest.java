@@ -24,10 +24,18 @@ class HelloControllerTest {
                 .andExpect(MockMvcResultMatchers.content().string("welcome gyandeep"));
 
     }
+    @Test
+    void helloControllerTestNullName() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/hello"))
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.content().string("Welcome dummy user"));
+
+    }
 
     @Test
     void helloControllerTestEmptyName() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/hello"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/hello")
+                .queryParam("name","gyandeep"))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string("Welcome dummy user"));
 
